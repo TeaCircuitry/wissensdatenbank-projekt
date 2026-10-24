@@ -1,0 +1,19 @@
+# blacklist everything
+*
+!*/
+
+# whitelist the following files
+# git related files
+!.gitignore
+!*.gitkeep
+
+# latex source code
+!*.tex
+!*.bib
+
+# notes
+!*.md
+!*.txt
+
+# allow all files in images
+!images/**

@@ -1,0 +1,67 @@
+% Angepasste Seminarvorlage
+%
+\documentclass[12pt,a4paper,fancyheader]{scrartcl}
+
+\usepackage[ngerman]{babel}			% deutsche Namen/Umlaute
+\usepackage[utf8]{inputenc}			% Zeichensatzkodierung
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{graphicx}				% Einbinden von Bildern
+\usepackage{color}					% Farben wenn es sein muß
+\usepackage{hyperref}				% Klickbare Verweise und \autoref{label}
+\usepackage{booktabs}				% "Schöne" Tabellen
+\usepackage{amsmath}				% Mathematischer Formelsatz AMS
+\usepackage{amsfonts}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage{float}     % Für [H] Platzierung
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{xparse}
+\usepackage[printonlyused]{acronym} % Abkürzungsverzeichnis
+
+% Literatur Daten laden
+\addbibresource{libary/literature.bib} % Replace with your bibliography file
+
+% Metadaten Aliasse laden
+\input{meta/metadata.tex}
+
+% Template Befehle laden
+\input{meta/commands.tex}
+
+% Abkürzungsverzeichnis laden
+\input{libary/abbreviation.tex}
+
+\hypersetup{ % Thema und Author in die Meta-Daten der PDF
+pdftitle={Seminararbeit zum Thema: \papertopic} 
+pdfauthor={\paperauthors}
+}
+
+\begin{document}
+\input{layout/titlepage.tex}
+
+\pagenumbering{Roman}
+\cleardoublepage
+
+\tableofcontents			% Inhaltsverzeichnis ... nicht für kurze Dokumente!
+\cleardoublepage
+
+\listoffigures				% Abbildungsverzeichnis ... nicht für kurze Dokumente
+\cleardoublepage
+
+\pagenumbering{arabic}
+
+% Text der Arbeit
+\input{content/chapters.tex}
+
+% Das Literaturverzeichnis
+\cleardoublepage
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography[title={Literaturverzeichnis}]
+
+% Das Abkürzungsverzeichnis
+\cleardoublepage
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis} % optional für TOC
+\abkuerzungen
+\end{document}

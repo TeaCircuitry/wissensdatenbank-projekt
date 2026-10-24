@@ -1,0 +1,12 @@
+% Das ist ein 100 Wörter umfassender Blindtext, um das Aussehen von längeren Texten zu testen.
+\newcommand{\blindtext}{\textit{Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.}}
+
+% citation commands
+\newcommand{\dircite}[2][]{\footcite[][#1]{#2}}
+\newcommand{\indircite}[2][]{\footcite[Vgl.][#1]{#2}}
+\newcommand{\dircitegraph}[2][]{
+\\{\small \textcite{#2}\IfNoValueF{#1}{\unskip,~#1}}
+}
+\newcommand{\indircitegraph}[2][]{
+\\{\small In~Anlehnung~an:~\textcite{#2}\IfNoValueF{#1}{\unskip,~#1}}%
+}

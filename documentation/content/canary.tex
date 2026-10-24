@@ -1,0 +1,146 @@
+%
+%	z.B. Text des ersten Autors
+%
+
+\section{Einführung}
+Eine Untergliederung des Dokuments in Abschnitte und Unterabschnitte
+geschieht mit den Kommandos \verb|\section{...}| und \verb|\subsection{...}|,
+in Absätze mit \verb|\par| oder einfach einer Leerzeile im \LaTeX-Quelltext.
+
+\paragraph{Betitelter Absatz.}
+Ein sehr kleiner Abschnitt (meistens nur ein Absatz)
+mit Titeltext, der nicht vom Textrumpf abgesetzt ist, wird durch das Kommando
+\verb|\paragraph{titel}| erzeugt.
+
+Bitte seien Sie mit dem Kommando \verb?\verb|text|? vorsichtig! Die Anweisung bewirkt eine exakte Darstellung des Textes darin.
+
+%
+%	z.B. Text des zweiten Autors
+%
+
+\section{Weitere Kommandos}
+
+\subsection{Mathematische Formeln}\label{sec:formeln}
+
+Mathematische Formeln werden mittels \verb|\(...\)|
+in den Fließtext eingebaut
+--- zum Beispiel \( E=mc^2 \) und:
+sei \(V\) ein Vektorraum über \(\mathbb{R}\)
+und \(\mathcal{M}\) eine Indexmenge
+---
+oder aber mittels \verb|\[...\]|
+abgesetzt und zentriert dargestellt:
+\[
+    \pmb{x} = \sqrt[3]{\frac{a^2-b^2}{a^2+b^2}}
+    ~~~~~ \text{versus} ~~~~~
+    \boldsymbol{x} = \sqrt[3]{\frac{a^2-b^2}{a^2+b^2}}
+\]
+
+
+\subsection{Silbentrennung}\label{sec:silbentrennung}
+Vertrauen Sie bitte nie einer automatischen Silbentrennung (auch nicht der von Microsoft Word \& Co.). In folgendem Test-Absatz ist das Wort "`Spracherkennung"' falsch getrennt.
+
+Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Te Spracherkennung.
+
+Sie können LaTeX die richtige Trennung mit \verb|\hyphenation{...}| mitteilen. Man tut das üblicherweise noch vor \verb|\begin{document}|.
+
+\hyphenation{Sprach-er-ken-nung}	% hier jetzt zu Demonstrationszwecken im Text
+Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Testzeile Te Spracherkennung.
+
+
+\subsection{Literaturzitate}
+\label{sec:literaturzitate}
+
+Diese Vorlage basiert auf einer Latex Vorlage von Claudius Stern\indircite{Stern2018b} mit meinen eigenen Anpassungen.
+Konkret wurden extra Zitierbefehle angelegt, um angepasst an die Anforderungen aus dem Kurs Wissenschaftliches Arbeiten zitieren zu können.
+
+Das Literaturverwaltungsprogramm JabRef\indircite{JabRef2014} ist für viele Plattformen verfügbar und unterstützt bei der Literaturrecherche. Es ist prädestiniert dazu, mit {\LaTeX} in Kombination mit {Bib\TeX} zusammenzuarbeiten.
+
+So kann in dieser Vorlage mit \verb|\dircite{Bibtexkey}| eine Quelle direkt Zitiert werden.
+Optional kann auch ein Seitenhinweis mit \verb|\dircite[S. 42]{Buch}| wie folgt beigefügt werden.
+Indirekte Zitate können analog mit \verb|\indircite[page info]{Bibtexkey}| erstellt werden.
+
+\subsection{Einbinden von Bildern}
+
+Sie können mit der Anweisung \verb|\includegraphics{datei}| eine Grafikdatei einbinden. Diese kann im PDF-, JPG- oder PNG-Format vorliegen. Grafiken werden üblicherweise in die float-Umgebung \verb|figure| gekapselt. Jede eingebundene Grafik muss vom Text aus referenziert werden. Die textuelle Referenz hat \textit{vor} der Grafik zu erfolgen.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{images/FOM.jpg}
+    \dircitegraph{FOM}
+    \caption{Logo der FOM}
+    \label{fig:fomlogo}
+\end{figure}
+
+Auch andere Grafikformate werden unterstützt.
+Grafiken finden sich nicht notwendigerweise direkt am Einfüge-Ort (siehe \autoref{fig:fomlogo}).
+Das Textsatzsystem richtet es so ein, dass es gut aussieht.
+Zitate von Graphiken sind möglich über \verb|\dircitegraph[]{}| und \verb|\indircitegraph[]{}|.
+
+\subsection{Querverweise}\label{sec:querverweise}
+Querverweise können sie mit dem \verb|\label{key}| befehl direkt nach einer section Anweisung oder als Teil einer Graphik erstellen.
+Auf diese können sie dann anschließend \verb|\autoref{key}|, oder wenn sie nur die Nummer brauchen mit \verb|\ref{key}| verweisen.
+
+Näheres zu Formeln können sie Beispielsweise in \autoref{sec:formeln} lesen, während in \ref{sec:silbentrennung} Silbentrennung erklärt wird.
+
+\subsection{Abkürzungen}
+Abkürzung können nach einem Eintrag in der Datei \verb|abbreviation.tex| mit den Befehlen \verb|\ac{XYZ}| (für einen kleinen ersten Buchstaben) und \verb|\Ac{XYZ}| (für einen großen ersten Buchstaben) in den Text eingefügt werden.
+
+Dieses Template ist für Seminararbeiten an der \ac{FOM} gedacht.
+Es wurde für einen \ac{IT} Studiengang der \ac{FOM} angepasst.
+
+\subsection{Erstellen von Tabellen}
+
+Das Volk hat gesprochen. Siehe \autoref{tab:tabular}. Auch hier kommt ein float zum Einsatz, jedoch mit dem Positionierungs-Hinweis \verb|[h]|. Jedes float sollte mit einem Label versehen werden, und es sollte im Text darauf verwiesen werden, da sich die Position ändern kann.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular} {|llc||r|}
+        \hline
+        Name       & Rang    & Fraktion & Stimmenanteil \\
+        \hline
+        Mobutu     & General & CDU      & 57\%          \\
+        Tsvangirai & Oberst  & CSU      & 63\%          \\
+        \hline
+    \end{tabular}
+    \caption {Bundestagswahl in Simbabwe}
+    \label{tab:tabular}
+\end{table}
+
+\autoref{tab:booktab} verwendet keine vertikalen Linien und entspricht dem üblicherweise in Büchern verwenden Stil.
+Derartige Tabellen sind deutlich ansehnlicher.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular} {llcr}
+        \toprule
+        Name       & Rang    & Fraktion & Stimmenanteil \\
+        \midrule
+        Mobutu     & General & CDU      & 57\%          \\
+        Tsvangirai & Oberst  & CSU      & 63\%          \\
+        \bottomrule
+    \end{tabular}
+    \caption {Bundestagswahl in Simbabwe}
+    \label{tab:booktab}
+\end{table}
+
+\subsection{Listen und Aufzählungen}
+
+Listen und Aufzählungen werden in einer Umgebung angelegt (umschlossen von \verb|begin| und \verb|end|.).
+\verb|\begin{itemize}| leitet eine Liste ein und \verb|\begin{enumerate}| eine Aufzählung.
+Die Einträge werden jeweils mit \verb|\item| begonnen.
+Folgend zwei Beispiele.
+
+Itemize:
+\begin{itemize}
+    \item Test
+    \item Test
+    \item Test
+\end{itemize}
+
+Enumerate:
+\begin{enumerate}
+    \item Test
+    \item Test
+    \item Test
+\end{enumerate}
